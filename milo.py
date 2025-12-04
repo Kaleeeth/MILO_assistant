@@ -63,7 +63,7 @@ def main():
     print("MILO running...")
     app.run_webhook(
     listen="0.0.0.0",
-    port=int(os.environ.get("PORT", 8443)),
+    port=8443,
     webhook_url=f"https://milo-assistant.onrender.com/{TOKEN}"
 )
 
