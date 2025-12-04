@@ -47,12 +47,12 @@ async def daily_briefing(context: ContextTypes.DEFAULT_TYPE):
     for n in noticias:
         noticias_texto += f"- {n['title']}: {n['summary']} ({n['url']})\n"
 
-        briefing_text = (
-            "Buenos días, soy MILO con tu informe diario.\n\n"
-            f"Clima hoy en Mérida: {clima}\n\n"
-            "Noticias principales:\n{noticias_texto}\n\n"
-            "Recuerda que no tienes que ser perfecto, solo avanzar un poco cada día."
-        )
+    briefing_text = (
+       "Buenos días, soy MILO con tu informe diario.\n\n"
+        f"Clima hoy en Mérida: {clima}\n\n"
+        "Noticias principales:\n{noticias_texto}\n\n"
+        "Recuerda que no tienes que ser perfecto, solo avanzar un poco cada día."
+    )
 
     await context.bot.send_message(chat_id=chat_id, text=briefing_text, parse_mode="Markdown")
 
