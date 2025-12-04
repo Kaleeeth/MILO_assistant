@@ -61,7 +61,11 @@ def main():
     job_queue.run_daily(daily_briefing, time(hour=5, minute=0, second=0))
 
     print("MILO running...")
-    app.run_polling()
+    app.run_webhook(
+    listen="0.0.0.0",
+    port=int(os.environ.get("PORT", 8443)),
+    webhook_url=f"https://milo-assistant.onrender.com/{TOKEN}"
+)
 
 if __name__ == "__main__":
     main()
