@@ -1,3 +1,4 @@
+from email.mime import application
 import os
 from dotenv import load_dotenv
 from telegram import Update
@@ -57,8 +58,7 @@ async def daily_briefing(context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=chat_id, text=briefing_text, parse_mode="Markdown")
 
 def main():
-    app = ApplicationBuilder().token(TOKEN).build()
-
+    app = application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start_command))
     app.add_handler(CommandHandler("hola", hola_command))
 
